@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+%html
+  %title= 'node example'
+  %head
+  %body
+    %span= user.name
+    %h1= user.lastname
+    %h2= user.age
+    <img src='node.jpg' />
+
