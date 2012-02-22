@@ -1,0 +1,22 @@
+var express = require('./node_modules/express');
+app = express.createServer();
+
+app.configure('development', function(){
+    var app_name = 'express test';
+});
+
+app.register('.haml', require('./node_modules/hamljs'));
+app.use(express.static(__dirname + '/views'));
+//app.set('view engine', 'haml');
+
+app.get('/', function(req, res){
+//    res.send('hello express');
+    res.render('index.html.haml', {layout: false, user: {name:'michal', lastname: 'sz'}});
+});
+
+app.listen(11300);
+//http.createServer(function (req, res) {
+//    res.writeHead(200, {'Content-Type': 'text/plain'});
+//    res.end('Hello World\n');
+//}).listen(11300, "85.232.240.127");
+console.log('Server running at http://91.227.38.245:11300/');

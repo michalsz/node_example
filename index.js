@@ -4,13 +4,14 @@ app = express.createServer();
 app.configure('development', function(){
     var app_name = 'express test';
     app.use(express.static(__dirname + '/public'));
+    app.use(express.static(__dirname + '/views'));
 });
 
 app.register('.haml', require('./node_modules/hamljs'));
-app.use(express.static(__dirname + '/views'));
+
 
 app.get('/', function(req, res){
-    res.render('index.html.haml', {layout: false, user: {name:'michal',
+    res.render('index.html.haml', {layout: 'layout.html.haml', user: {name:'michal',
 							 lastname: 'szymanski', age: 10}});
 });
 
